@@ -5,7 +5,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /*
  * @Author: 田想兵
  * @Date: 2020-12-01 15:40:58
- * @LastEditTime: 2020-12-01 16:56:26
+ * @LastEditTime: 2020-12-01 19:26:35
  * @github: https://github.com/tianxiangbing
  * @Contact: 55342775@qq.com
  */
@@ -60,4 +60,5 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       return data;
     }
   };
+  return StorageCache;
 });
