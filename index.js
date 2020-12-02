@@ -5,7 +5,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /*
  * @Author: 田想兵
  * @Date: 2020-12-01 15:40:58
- * @LastEditTime: 2020-12-01 19:26:35
+ * @LastEditTime: 2020-12-02 13:50:25
  * @github: https://github.com/tianxiangbing
  * @Contact: 55342775@qq.com
  */
@@ -23,7 +23,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 })(function () {
   "use strict";
 
-  StorageCache = {
+  var StorageCache = {
     /**
      * @description: 缓存时长，毫秒
      * @param {*}
@@ -38,15 +38,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @return {*}
      */
     get: function get(key, isjson) {
-      if (this.caches.hasOwnProperty(key)) {
-        var obj = this.caches[key];
-        if (Date.now() - obj.time < this.time) {
+      if (StorageCache.caches.hasOwnProperty(key)) {
+        var obj = StorageCache.caches[key];
+        if (Date.now() - obj.time < StorageCache.time) {
           return obj.data;
         } else {
-          return this.__reset(key, isjson);
+          return StorageCache.__reset(key, isjson);
         }
       } else {
-        return this.__reset(key, isjson);
+        return StorageCache.__reset(key, isjson);
       }
     },
     __reset: function __reset(key, isjson) {
@@ -56,7 +56,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       } else {
         data = localStorage.getItem(key);
       }
-      this.caches[key] = { data: localStorage.getItem(key), time: Date.now() };
+      StorageCache.caches[key] = { data: localStorage.getItem(key), time: Date.now() };
       return data;
     }
   };

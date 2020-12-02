@@ -1,7 +1,7 @@
 /*
  * @Author: 田想兵
  * @Date: 2020-12-01 15:40:58
- * @LastEditTime: 2020-12-01 19:26:35
+ * @LastEditTime: 2020-12-02 13:50:25
  * @github: https://github.com/tianxiangbing
  * @Contact: 55342775@qq.com
  */
@@ -18,7 +18,7 @@
   }
 })(function () {
   "use strict";
-  StorageCache = {
+  const StorageCache = {
     /**
      * @description: 缓存时长，毫秒
      * @param {*}
@@ -33,15 +33,15 @@
      * @return {*}
      */
     get(key, isjson) {
-      if (this.caches.hasOwnProperty(key)) {
-        let obj = this.caches[key];
-        if (Date.now() - obj.time < this.time) {
+      if (StorageCache.caches.hasOwnProperty(key)) {
+        let obj = StorageCache.caches[key];
+        if (Date.now() - obj.time < StorageCache.time) {
           return obj.data;
         }else{
-          return this.__reset(key,isjson);
+          return StorageCache.__reset(key,isjson);
         }
       } else {
-        return this.__reset(key,isjson);
+        return StorageCache.__reset(key,isjson);
       }
     }
     ,__reset(key,isjson){
@@ -51,7 +51,7 @@
       } else {
         data = localStorage.getItem(key);
       }
-      this.caches[key] = { data: localStorage.getItem(key), time: Date.now() };
+      StorageCache.caches[key] = { data: localStorage.getItem(key), time: Date.now() };
       return data;
     }
   }
