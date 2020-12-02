@@ -5,7 +5,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /*
  * @Author: 田想兵
  * @Date: 2020-12-01 15:40:58
- * @LastEditTime: 2020-12-02 13:50:25
+ * @LastEditTime: 2020-12-02 14:21:14
  * @github: https://github.com/tianxiangbing
  * @Contact: 55342775@qq.com
  */
@@ -56,7 +56,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       } else {
         data = localStorage.getItem(key);
       }
-      StorageCache.caches[key] = { data: localStorage.getItem(key), time: Date.now() };
+      StorageCache.caches[key] = { data: data, time: Date.now() };
       return data;
     }
   };
