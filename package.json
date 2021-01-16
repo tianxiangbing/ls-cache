@@ -2,12 +2,12 @@
   "name": "x-ls-cache",
   "version": "1.0.3",
   "description": "js ls-cache",
-  "main": "index.js",
+  "main": "index.min.js",
   "scripts": {
     "build": "npm run compile && npm run uglify",
     "uglify": "uglifyjs index.js -m -c -o index.min.js",
     "compile": "babel src -d .",
-    "prepublish": "npm run compile",
+    "prepublish": "npm run build",
     "test": "jest"
   },
   "repository": {
